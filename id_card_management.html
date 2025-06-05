@@ -1,0 +1,27 @@
+ <h2 class="section-title">ID Card Management</h2>
+      <p>Manage ID card printing, distribution, and tracking.</p>
+
+        <div class="design-area">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="studentName">Student Name:</label>
+                    <input type="text" id="studentName" placeholder="Enter full name (e.g., Juan D. Cruz)" oninput="updateCard()">
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentCourse">Course:</label>
+                    <input type="text" id="studentCourse" placeholder="e.g., BACHELOR of SCIENCE in COMPUTER SCIENCE" oninput="updateCard()">
+                </div>
+                
+                <div class="form-group">
+                    <label>Student Photo:</label>
+                    <div class="image-upload">
+                        <input type="file" id="photoUpload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+                        <button class="upload-btn" onclick="document.getElementById('photoUpload').click()">
+                            📷 Upload Photo
+                        </button>
+                        <small style="color: #666; margin-top: 5px;">Recommended: 2x2 ID photo</small>
+                    </div>
+                </div>
+            </div>
+          </div>

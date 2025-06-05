@@ -1,317 +1,244 @@
-body {
-  background: linear-gradient(135deg, #2c5aa0 0%, #1e3d72 100%);
-  font-family:'Times New Roman', serif;
-  min-height: 100vh;
-  padding: 20px;
-  margin: 0;
-}
+    body {
+      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      min-height: 100vh;
+    }
 
-.container {
-   width: 100%;
-   max-width: none;
-   margin: 0;
-   padding: 0 20px; 
-}      
+    p, h3{
+      color:#1e3c72;
+    }
 
-.university-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  color: white;
-  margin-bottom: 40px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
+    /* Ensuring iframe doesn't overflow */
+    iframe#contentFrame {
+        flex-grow: 1;
+        height: calc(100vh - 70px); /* Adjust based on your navbar height */
+        width: 100%;
+        border: none;
+    }
 
-.university-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+    /* For the date and time formatting */
+    .dateStr {
+        font-weight: 600;
+        font-size: 1.1rem;   
+        text-align: right;
+    }
 
-.datetime-display {
-  text-align: right;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
+    .timeStr {
+        font-size: 2rem;
+        font-weight: 300;
+        opacity: 0.9;
+        display: block;
+    }
 
-.datetime-display .date {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
+    #dateTime{
+        color: #fff;
+    }
 
-.datetime-display .time {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #ffd700;
-}
+    /* For navbar formatting (the horizontal one) */
+    .navbar_top{
+        background: #1e3c72;
 
-.university-logo {
-  width: 350px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+    }
+    .navbar_toggle{
+        background: #3fa2f6;
+    }
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .navbar-toggler:focus {
+        outline: none;
+        box-shadow: none;
+    }
 
-.university-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    /* For the sidebar formatting (the vertical one) */
+    #sidebar .nav-link {
+      color: #fff;
+    }
+    #sidebar .nav-link:hover{
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    #logoutBtn{
+        background: #1e3c72;
+        color: #fff;
+        cursor: pointer;
+    }
+    #logoutBtn:hover{
+        background: rgba(255, 255, 255, 0.5);
+        color: #fff;
+    }
+    .navBtn{
+        background: #3fa2f6;
+        color: white;
+    }
 
-.main-content {
-  display: flex;
-  justify-content: stretch;
-  align-items: stretch;
-}
+ 
+    /* CONTENT STYLING */
+    .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1e3c72;
+            text-align: left;
+        }
 
-.id-card {
-  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-  border: 2px solid #e9ecef;
-  border-radius: 15px;
-  width: 100%;
-  max-width: 100%;
-  height: auto; 
-  flex-direction: row;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  gap: 20px;
-}
+    /* DASHBOARD STYLING */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
 
-.card-left {
-  flex: 0 0 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+        gap: 10px;
+        margin-bottom: 30px;
+    }
 
-.card-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-  padding-left: 15px;
-  border-left: 2px solid #e9ecef;
-}
+    .stat-card {
+        background: #1e3c72;
+        color: white;
+        padding: 25px;
+        border-radius: 15px;
+        text-align: center;
+    }
 
-.card-header {
-  text-align: center;
-  margin-bottom: 10px;
-}
+    .stat-number {
+      font-size: 2.3rem;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
 
-.card-header h2 {
-  font-size: 1.1rem;
-  color: #2c5aa0;
-  margin-bottom: 3px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-}
+    .stat-label {
+      opacity: 0.8;
+      font-size: 0.8rem;
+    }
 
-.card-header .subtitle {
-  font-size: 0.9rem;
-  color: #7f8c8d;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5%;
+    }
 
-.value,
-.access-granted {
-  opacity: 0;
-  visibility: hidden;
-}
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
 
-.id-card:hover .value,
-.id-card:hover .access-granted {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
 
-.photo {
-  width: 180px;
-  height: 230px;
-  border: 3px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-}
+/* USER MANAGEMENT STYLING */
+    .status-indicator {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .status-active { background: #4ade80; }
+    .status-inactive { background: #f87171; }
+    .status-pending { background: #fbbf24; }
 
-.photo-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  color: #999;
-  font-size: 0.9rem;
-  text-align: center;
-  opacity: 1;
-  visibility: visible;
-}
+    /* User Management Styles */
+    .user-management-content {
+      color: #1e3c72;
+      text-align: left;
+      padding: 20px;
+    }
 
-.photo-placeholder i {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  color: #ccc;
-}
+    .user-table {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      margin-top: 5px;
+    }
 
-.photo-actual {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-}
+    .user-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-.photo-actual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .user-table th,
+    .user-table td {
+      padding: 12px;
+      text-align: left;
+      color:#1e3c72;
+      border-bottom: 1px solid #eee;
+    }
 
-.id-card:hover .photo {
-  border-color: #2c5aa0;
-  box-shadow: 0 0 20px rgba(44, 90, 160, 0.3);
-}
+    .user-table th {
+      background: #f8f9fa;
+      font-weight: 600;
+      color: #1e3c72;
+    }
 
-.id-card:hover .photo-placeholder {
-  opacity: 0;
-  visibility: hidden;
-}
+/* ID CARD MANAGEMENT STYLING */
+  .design-area {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
 
-.id-card:hover .photo-actual {
-  opacity: 1;
-  visibility: visible;
-}
+        .form-section {
+            flex: 1;
+        }
 
-.info {
-  flex: 1;
-}
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-.info-row {
-  margin-bottom: 12px;
-}
+        .form-group label {
+            display: block;
+            color: #1e3c72;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
 
-.info .label {
-  font-size: 0.9rem;
-  color: #6c757d;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  margin-bottom: 3px;
-}
+        .form-group input[type="text"] {
+            width: 75%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
 
-.info .value {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #2c3e50;
-  background: linear-gradient(45deg, #2c5aa0, #1e3d72);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+        .form-group input[type="text"]:focus {
+            outline: none;
+            border-color: #3fa2f6;
+        }
 
-.access-granted{
-  text-align: center;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
+        .image-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
 
-.access-granted-bg {
-  background: linear-gradient(135deg, #12a353 0%, #2ed177 100%);
-  color: #fff;
-  border-radius: 25px;
-  box-shadow: 0 0 15px rgba(40, 135, 167, 0.4);
-  animation: pulse-glow 2s infinite;
-  position: relative;
-  overflow: hidden;
-  min-height: 35px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        .upload-btn {
+            background: #3fa2f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
 
-.access-granted-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  animation: shine 2s infinite;
-}
+        .upload-btn:hover {
+            background: #2980b9;
+        }
 
-@keyframes shine {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-.footer {
-  margin-top: 10px;
-  font-size: 0.75rem;
-  text-align: center;
-  color: #6c757d;
-  font-style: italic;
-}
-
-@media (max-width: 768px) {
-  .university-header {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .university-left {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .datetime-display {
-    text-align: center;
-  }
-  
-  .university-info h1 {
-    font-size: 1.8rem;
-  }
-  
-  .id-card {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    flex-direction: column;
-    padding: 15px;
-  }
-  
-  .card-left {
-    flex: none;
-    align-items: center;
-  }
-  
-  .card-right {
-    padding-left: 0;
-    border-left: none;
-    border-top: 2px solid #e9ecef;
-    padding-top: 15px;
-  }
-  
-  .photo {
-    width: 120px;
-    height: 150px;
-  }
-}
+/* INSERT MORE OF YOUR STYLING HERE ROSH!! */
