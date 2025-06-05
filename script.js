@@ -2,17 +2,17 @@
  //Used for loading pages into the iframe
  function loadPage(page) {
     fetch(page)
-      .then(response => {
-        if (!response.ok) throw new Error("Page not found");
-        return response.text();
-      })
-      .then(html => {
-        document.getElementById("contentContainer").innerHTML = html;
-      })
-      .catch(error => {
-        document.getElementById("contentContainer").innerHTML = "<div class='text-danger'>Error loading page.</div>";
-        console.error("Error loading page:", error);
-      });
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('contentContainer').innerHTML = html;
+
+      // Now hide the sidebar offcanvas after loading content
+      const sidebarEl = document.getElementById('sidebar');
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebarEl) 
+                         || new bootstrap.Offcanvas(sidebarEl);
+      bsOffcanvas.hide();
+    })
+    .catch(err => console.error('Error loading page:', err));
   }
 
   // Load default page on first load
