@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard | ID System </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+    <nav class="navbar navbar_top py-3">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+        <button class="navbar-toggler navbar_toggle me-5" type="button" id="sidebarToggle" aria-controls="sidebar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="text-white fw-bold h2 mt-1">ID System</span> <!-- Label to the right -->
+        </div>
+
+        <!-- Date/Time display -->
+        <span id="dateTime" class="navbar-brand mb-0 h1 text-end"></span>
+    </div>
+    </nav>
+
+  <!-- Offcanvas Sidebar -->
+  <div class="offcanvas offcanvas-start navBtn" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="offcanvas-header">   
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body d-flex flex-column">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link navBtn" onclick="loadPage('dashboard.html')" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navBtn" onclick="loadPage('user_management.html')" href="#">User Management</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link navBtn" onclick="loadPage('id_card_management.html')" href="#">ID Card Management</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link navBtn" onclick="loadPage('attendance.html')" href="#">Attendance</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navBtn" onclick="loadPage('access_control.html')" href="#">Access Control</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link navBtn" onclick="loadPage('reports.html')" href="#">Reports</a>
+        </li>
+    </ul>
+        <div class="mt-auto">
+          <a class="btn w-100" id="logoutBtn" href="index.html" onclick="return confirmLogout(event)">Logout</a>
+      </div>
+  </div>
+  </div>
+
+    <div class="container-fluid p-0">
+    <div id="contentContainer" class="p-4"></div>
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
