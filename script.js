@@ -50,6 +50,15 @@
     });
   });
 
+ function confirmLogout(event) {
+    const confirmed = confirm("Are you sure you want to logout?");
+    if (!confirmed) {
+      event.preventDefault(); 
+    }
+    return confirmed; 
+  }
+
+
 //Function for updating the time in the navbar and updating it every second
 function updateDateTime() {
     const now = new Date();

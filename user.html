@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Dashboard | ID System</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar_top py-3">
+  <div class="container-fluid justify-content-between">
+    <div class="d-flex align-items-center">
+      <a href="index.html" class="btn btn-light me-5">
+        ← Back
+      </a>
+      <span class="text-white fw-bold h2 mb-0">ID System</span>
+    </div>
+    <span id="dateTime" class="navbar-brand mb-0 h1 text-end"></span>
+  </div>
+</nav>
+
+  <!-- Main Content -->
+    <div class="container-fluid mt-4">
+      <div class="card shadow p-4 rounded">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs mb-3" id="maxTabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="active-tab" data-bs-toggle="tab" href="#input-section" role="tab" aria-controls="input-section" aria-selected="true">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="inactive-tab" data-bs-toggle="tab" href="#solution-section" role="tab" aria-controls="solution-section" aria-selected="false">Inactive</a>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="maxTabContent">
+          <!-- Active Tab -->
+          <div class="tab-pane fade show active" id="input-section" role="tabpanel" aria-labelledby="active-tab">
+            <div class="main-content">
+              <div class="id-card" tabindex="0" aria-label="Student ID Card">
+                <div class="card-left">
+                  <div class="user-card-header">
+                    <h2 class="user-card-title">Student ID</h2>
+                    <div class="fst-italic" style="color: #bbb ">Official Identification</div>
+                  </div>
+                  <div class="photo">
+                    <div class="photo-placeholder">
+                      <div style="font-size: 3rem; margin-bottom: 10px; color: #ccc;">?</div>
+                      <div>Student Photo</div>
+                      <div style="font-size: 0.8rem; color: #bbb; margin-top: 5px;">TAP ID</div>
+                    </div>
+                    <div class="photo-actual">
+                      <img src="id_picture.jpg" alt="Student Photo">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-right">
+                  <div class="info">
+                    <div class="info-row">
+                      <div class="label">Student Number</div>
+                      <div class="value">2023xxxxx</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="label">Full Name</div>
+                      <div class="value">DELA CRUZ, JUAN</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="label">Program</div>
+                      <div class="value">B.S. Computer Science</div>
+                    </div>
+                  </div>
+                  <div class="access-granted-bg">
+                    <div class="access-granted">Access Granted</div>
+                  </div>
+                  <div class="footer text-center fst-italic">ID System</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inactive Tab -->
+          <div class="tab-pane fade" id="solution-section" role="tabpanel" aria-labelledby="inactive-tab">
+            <div class="tab-pane fade show active" id="input-section" role="tabpanel" aria-labelledby="active-tab">
+            <div class="main-content">
+              <div class="id-card" tabindex="0" aria-label="Student ID Card">
+                <div class="card-left">
+                  <div class="user-card-header">
+                    <h2 class="user-card-title">Student ID</h2>
+                    <div class="fst-italic" style="color: #bbb ">Official Identification</div>
+                  </div>
+                  <div class="photo">
+                    <div class="photo-placeholder">
+                      <div style="font-size: 3rem; margin-bottom: 10px; color: #ccc;">?</div>
+                      <div>Student Photo</div>
+                      <div style="font-size: 0.8rem; color: #bbb; margin-top: 5px;">TAP ID</div>
+                    </div>
+                    <div class="photo-actual">
+                      <img src="id_picture.jpg" alt="Student Photo">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-right">
+                  <div class="info">
+                    <div class="info-row">
+                      <div class="label">Student Number</div>
+                      <div class="value">2023xxxxx</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="label">Full Name</div>
+                      <div class="value">DELA CRUZ, JUAN</div>
+                    </div>
+                    <div class="info-row">
+                      <div class="label">Program</div>
+                      <div class="value">B.S. Computer Science</div>
+                    </div>
+                  </div>
+                  <div class="access-denied-bg">
+                    <div class="access-denied">Access Denied</div>
+                  </div>
+                  <div class="footer text-center fst-italic">ID System</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div> <!-- /.tab-content -->
+      </div> <!-- /.card -->
+    </div> <!-- /.container-fluid -->
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -3,66 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Dashboard - Adamson University</title>
+  <title>Login | ID System</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-wrapper {
+      max-width: 900px;
+      width: 100%;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .login-left, .login-right {
+      padding: 40px 30px;
+      flex: 1 1 300px;
+    }
+
+    .login-left {
+      background: #ffffff;
+      border-right: 1px solid #eee;
+    }
+
+    .login-right {
+      background: #eaf0f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h3 {
+      color: #1e3c72;
+      font-weight: bold;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    label {
+      font-weight: 500;
+      color: #1e3c72;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #3fa2f6;
+    }
+
+    .btn-primary {
+      background-color: #1e3c72;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #16305b;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+    }
+
+    .qr-box {
+      text-align: center;
+      border: 2px dashed #1e3c72;
+      border-radius: 10px;
+      padding: 40px 20px;
+      color: #1e3c72;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .qr-box:hover {
+      background-color: #dbe7f2;
+      cursor: pointer;
+    }
+
+    .qr-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #1e3c72;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 15px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .login-wrapper {
+        flex-direction: column;
+      }
+
+      .login-left {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Navbar -->
-    <nav class="navbar navbar_top py-3">
-    <div class="container-fluid">
-        <div class="d-flex align-items-center">
-        <button class="navbar-toggler navbar_toggle me-5" type="button" id="sidebarToggle" aria-controls="sidebar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <span class="text-white fw-bold h2 mt-1">ID System</span> <!-- Label to the right -->
-        </div>
 
-        <!-- Date/Time display -->
-        <span id="dateTime" class="navbar-brand mb-0 h1 text-end"></span>
-    </div>
-    </nav>
-
-  <!-- Offcanvas Sidebar -->
-  <div class="offcanvas offcanvas-start navBtn" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
-    <div class="offcanvas-header">   
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    
-    <div class="offcanvas-body d-flex flex-column">
-    <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link navBtn" onclick="loadPage('dashboard.html')" href="#">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navBtn" onclick="loadPage('user_management.html')" href="#">User Management</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link navBtn" onclick="loadPage('id_card_management.html')" href="#">ID Card Management</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link navBtn" onclick="loadPage('attendance.html')" href="#">Attendance</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navBtn" onclick="loadPage('access_control.html')" href="#">Access Control</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link navBtn" onclick="loadPage('reports.html')" href="#">Reports</a>
-        </li>
-    </ul>
-        <div class="mt-auto">
-          <a class="btn w-100" id="logoutBtn" href="#">Logout</a>
+<div class="login-wrapper">
+  <!-- Left: Traditional Login -->
+  <div class="login-left">
+    <h3>Login to ID System</h3>
+    <form id="loginForm">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" required />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" required />
+      </div>
+      <div id="errorMsg" class="error mb-3"></div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+    <div class="footer-note mt-3">
+      Use <strong>admin/admin</strong> or <strong>user/user</strong> to log in.
     </div>
   </div>
-  </div>
 
-    <div class="container-fluid p-0">
-    <div id="contentContainer" class="p-4"></div>
+  <!-- Right: QR/RFID Login -->
+  <div class="login-right">
+    <div class="qr-box" id="rfidTapBox" tabindex="0">
+      <div class="qr-icon"><i class="fas fa-qrcode fa-3x"></i></div>
+      <h5>Scan QR Code or Tap ID</h5>
+      <p class="text-muted small">Hold your ID near the scanner or use a QR-enabled app.</p>
     </div>
+  </div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    errorMsg.textContent = "";
+    errorMsg.style.color = "red";
+
+    if (username === "admin" && password === "admin") {
+      errorMsg.style.color = "green";
+      errorMsg.textContent = "Login successful! Redirecting...";
+      setTimeout(() => {
+        window.location.href = "admin.html";
+      }, 1000);
+    } else if (username === "user" && password === "user") {
+      errorMsg.style.color = "green";
+      errorMsg.textContent = "Login successful! Redirecting...";
+      setTimeout(() => {
+        window.location.href = "user.html";
+      }, 1000);
+    } else {
+      errorMsg.textContent = "Invalid username or password.";
+    }
+  });
+
+  document.getElementById("rfidTapBox").addEventListener("click", () => {
+    alert("Simulating QR/ID Tap... Redirecting to user page.");
+    window.location.href = "admin.html";
+  });
+</script>
+
 </body>
 </html>
