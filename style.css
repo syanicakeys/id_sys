@@ -1,5 +1,5 @@
 /* ========================================
-   INTEGRATED ID CARD MANAGEMENT SYSTEM STYLES
+ ID CARD MANAGEMENT SYSTEM STYLES
 ======================================== */
 
 /* GENERAL BODY AND LAYOUT STYLING */
@@ -10,6 +10,57 @@ body {
     min-height: 100vh;
    
 }
+
+
+ #backToTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1050;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3c72 0%, #3fa2f6 100%);
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #backToTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    #backToTopBtn:hover {
+     background: linear-gradient(135deg, #1e3c72 0%, #3fa2f6 100%);
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #backToTopBtn:active {
+      transform: scale(0.95);
+    }
+
+    /* Optional: Add a subtle pulse animation */
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      50% {
+        box-shadow: 0 4px 25px rgba(102, 126, 234, 0.4);
+      }
+      100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+    }
+   
 
 p, h3 {
     color: #1e3c72;
@@ -88,6 +139,12 @@ iframe#contentFrame {
     background: #3fa2f6;
     color: white;
 }
+
+
+/* ========================================
+  ADMIN ACCOUNT STYLING
+======================================== */
+
 
 /* ========================================
    CONTENT STYLING
@@ -705,6 +762,17 @@ iframe#contentFrame {
         flex-direction: column;
         gap: 20px;
     }
+
+ 
+      #backToTopBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+      }
+    
+
     
     .id-card-preview {
         width: 100%;
@@ -807,9 +875,9 @@ iframe#contentFrame {
 
 
 
-/***** USER ACCOUNT ****/
-
-/* USER/ID CARD STYLING - Complete user card system */
+/* ========================================
+   USER DASHBOARD STYLING
+======================================== */
 .container {
    width: 100%;
    max-width: none;
@@ -1045,7 +1113,7 @@ iframe#contentFrame {
   animation: shine 2s infinite;
 }
 
-/* Hover effects for values and access states */
+
 .value,
 .access-granted,
 .access-denied {
@@ -1063,7 +1131,7 @@ iframe#contentFrame {
   transform: translateY(0);
 }
 
-/* RESPONSIVE ADJUSTMENTS - Additional mobile styling */
+
 @media (max-width: 992px) {
   .card-left {
     flex: none;
