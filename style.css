@@ -1,241 +1,815 @@
-    body {
-      overflow-x: hidden;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fff;
-      min-height: 100vh;
+/* ========================================
+   INTEGRATED ID CARD MANAGEMENT SYSTEM STYLES
+======================================== */
+
+/* GENERAL BODY AND LAYOUT STYLING */
+body {
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    min-height: 100vh;
+   
+}
+
+p, h3 {
+    color: #1e3c72;
+}
+
+/* Ensuring iframe doesn't overflow */
+iframe#contentFrame {
+    flex-grow: 1;
+    height: calc(100vh - 70px); /* Adjust based on your navbar height */
+    width: 100%;
+    border: none;
+}
+
+/* DATE AND TIME FORMATTING */
+.dateStr {
+    font-weight: 600;
+    font-size: 1.1rem;   
+    text-align: right;
+}
+
+.timeStr {
+    font-size: 2rem;
+    font-weight: 300;
+    opacity: 0.9;
+    display: block;
+}
+
+#dateTime {
+    color: #fff;
+}
+
+/* ========================================
+   NAVBAR FORMATTING (Horizontal)
+======================================== */
+.navbar_top {
+    background: #1e3c72;
+}
+
+.navbar_toggle {
+    background: #3fa2f6;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* ========================================
+   SIDEBAR FORMATTING (Vertical)
+======================================== */
+#sidebar .nav-link {
+    color: #fff;
+}
+
+#sidebar .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+#logoutBtn {
+    background: #1e3c72;
+    color: #fff;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.navBtn {
+    background: #3fa2f6;
+    color: white;
+}
+
+/* ========================================
+   CONTENT STYLING
+======================================== */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1e3c72;
+    text-align: left;
+}
+
+/* ========================================
+   DASHBOARD STYLING
+======================================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: #1e3c72;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.3rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    opacity: 0.8;
+    font-size: 0.8rem;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.card-title {
+    font-size: 1.0rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* ========================================
+   STATUS INDICATORS
+======================================== */
+.status-indicator {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.status-active { background: #4ade80; }
+.status-inactive { background: #f87171; }
+.status-pending { background: #fbbf24; }
+.status-issued { background: #4ade80; }
+.status-returned { background: #3b82f6; }
+.status-lost { background: #ef4444; }
+.status-expired { background: #6b7280; }
+
+/* ========================================
+   USER MANAGEMENT STYLING
+======================================== */
+.user-management-content {
+    color: #1e3c72;
+    text-align: left;
+    padding: 20px;
+}
+
+.user-table {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-top: 5px;
+}
+
+.user-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+    padding: 12px;
+    text-align: left;
+    color: #1e3c72;
+    border-bottom: 1px solid #eee;
+}
+
+.user-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #1e3c72;
+    cursor: pointer;
+}
+
+.user-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* ========================================
+   ID CARD MANAGEMENT STYLING
+======================================== */
+.design-area {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.form-section {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #1e3c72;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #3fa2f6;
+}
+
+.image-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.upload-btn {
+    background: #3fa2f6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: #2980b9;
+}
+
+/* ========================================
+   ID CARD PREVIEW STYLING
+======================================== */
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.id-card-preview {
+    width: 280px;
+    height: 420px;
+    border: 2px solid #1e3c72;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: white;
+    color: #1e3c72;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.photo-container {
+    width: 120px;
+    height: 150px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.photo-preview {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.photo-placeholder {
+    color: #999;
+    position: absolute;
+    font-size: 14px;
+}
+
+.preview-name {
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.preview-course {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin: 0;
+    color: #666;
+}
+
+.id-details {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.id-details p {
+    margin: 5px 0;
+    color: #999;
+}
+
+/* ========================================
+   ID TRACKING SECTION
+======================================== */
+.id-tracking-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+/* ========================================
+   ATTENDANCE STYLING
+======================================== */
+
+/* Stats Cards for Attendance */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Filter Section */
+.filter-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-title {
+    color: #1e3c72;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Attendance Table */
+.attendance-table {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.attendance-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 15px 12px;
+    text-align: left;
+    color: #1e3c72;
+    border-bottom: 1px solid #eee;
+}
+
+.attendance-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #1e3c72;
+    border-top: none;
+}
+
+.attendance-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* Status Indicators for Attendance */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-present {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.status-absent {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.status-late {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.status-excuse {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+/* ========================================
+   BUTTON STYLING
+======================================== */
+
+/* Print Button Styling */
+.print-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-print {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.btn-print:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.btn-download {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.btn-download:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+/* ACTION BUTTONS */
+.btn-primary-custom {
+    background: #3fa2f6;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background: #2980b9;
+    color: white;
+}
+
+.btn-outline-custom {
+    border: 2px solid #3fa2f6;
+    color: #3fa2f6;
+    background: transparent;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+}
+
+.btn-outline-custom:hover {
+    background: #3fa2f6;
+    color: white;
+}
+
+/* ========================================
+   REAL-TIME SECTION
+======================================== */
+.realtime-section {
+    background: linear-gradient(135deg, #1e3c72, #3fa2f6);
+    color: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.realtime-title {
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.scan-area {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.scan-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.recent-scans h5 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* ========================================
+   CHART CONTAINER
+======================================== */
+.chart-container {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.chart-title {
+    color: #1e3c72;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.chart-placeholder {
+    height: 300px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+}
+
+.chart-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   FORM CONTROLS
+======================================== */
+.form-control, .form-select {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #3fa2f6;
+    box-shadow: 0 0 0 0.2rem rgba(63, 162, 246, 0.25);
+}
+
+/* ========================================
+   QUICK ACTIONS
+======================================== */
+.quick-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   PAGINATION STYLING
+======================================== */
+.pagination .page-link {
+    color: #1e3c72;
+    border-color: #dee2e6;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #3fa2f6;
+    border-color: #3fa2f6;
+}
+
+.pagination .page-link:hover {
+    color: #3fa2f6;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+/* Animation for Real-time Updates */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.scan-area:hover {
+    animation: pulse 2s infinite;
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #3fa2f6;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    /* ID Card Management Responsive */
+    .design-area {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .id-card-preview {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 10px !important;
     }
 
-    p, h3{
-      color:#1e3c72;
+    .print-actions {
+        justify-content: center;
+        width: 100%;
     }
-
-    /* For the date and time formatting */
-    .dateStr {
-        font-weight: 600;
-        font-size: 1.1rem;   
-        text-align: right;
+    
+    /* Attendance Management Responsive */
+    .stats-grid {
+        grid-template-columns: 1fr;
     }
-
-    .timeStr {
-        font-size: 2rem;
-        font-weight: 300;
-        opacity: 0.9;
-        display: block;
+    
+    .quick-actions {
+        flex-direction: column;
     }
-
-    #dateTime{
-        color: #fff;
+    
+    .attendance-table {
+        overflow-x: auto;
     }
-
-    /* For navbar formatting (the horizontal one) */
-    .navbar_top{
-        background: #1e3c72;
-
+    
+    .filter-section .row > div {
+        margin-bottom: 15px;
     }
-    .navbar_toggle{
-        background: #3fa2f6;
+    
+    .realtime-section .col-lg-8,
+    .realtime-section .col-lg-4 {
+        margin-bottom: 20px;
     }
-    .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-    .navbar-toggler:focus {
-        outline: none;
-        box-shadow: none;
-    }
-
-    /* For the sidebar formatting (the vertical one) */
-    #sidebar .nav-link {
-      color: #fff;
-    }
-    #sidebar .nav-link:hover{
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-    }
-    #logoutBtn{
-        background: #1e3c72;
-        color: #fff;
-        cursor: pointer;
-    }
-    #logoutBtn:hover{
-        background: rgba(255, 255, 255, 0.5);
-        color: #fff;
-    }
-    .navBtn{
-        background: #3fa2f6;
-        color: white;
-    }
-
- 
-    /* CONTENT STYLING */
-    .section-title {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #1e3c72;
-            text-align: left;
-        }
-
-    /* DASHBOARD STYLING */
+    
+    /* Dashboard Responsive */
     .dashboard-grid {
         grid-template-columns: 1fr;
-      }
+    }
+}
 
-    .dashboard-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 0.5fr));
-        gap: 10px;
-        margin-bottom: 30px;
+@media (max-width: 576px) {
+    body {
+        padding: 10px;
     }
 
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
     .stat-card {
-        background: #1e3c72;
-        color: white;
-        padding: 25px;
-        border-radius: 15px;
-        text-align: center;
+        padding: 20px;
     }
-
+    
     .stat-number {
-      font-size: 2.3rem;
-      font-weight: 300;
-      margin-bottom: 10px;
+        font-size: 1.8rem;
+    }
+    
+    .filter-section,
+    .attendance-table,
+    .chart-container,
+    .form-section,
+    .id-tracking-section {
+        padding: 15px;
+    }
+    
+    .scan-area {
+        padding: 20px;
+    }
+    
+    .scan-icon {
+        font-size: 2rem;
+    }
+    
+    .form-control, .form-select {
+        max-width: 100% !important;
     }
 
-    .stat-label {
-      opacity: 0.8;
-      font-size: 0.8rem;
+    .btn-print, .btn-download {
+        flex: 1;
+        min-width: 120px;
     }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 5%;
+    .print-actions {
+        flex-direction: column;
+        width: 100%;
     }
 
-    .card-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0;
+    .print-actions button {
+        width: 100%;
     }
+}
 
-    .card-icon {
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
 
-/* USER MANAGEMENT STYLING */
-    .status-indicator {
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .status-active { background: #4ade80; }
-    .status-inactive { background: #f87171; }
-    .status-pending { background: #fbbf24; }
 
-    /* User Management Styles */
-    .user-management-content {
-      color: #1e3c72;
-      text-align: left;
-      padding: 20px;
-    }
 
-    .user-table {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      margin-top: 5px;
-    }
 
-    .user-table table {
-      width: 100%;
-      border-collapse: collapse;
-    }
 
-    .user-table th,
-    .user-table td {
-      padding: 12px;
-      text-align: left;
-      color:#1e3c72;
-      border-bottom: 1px solid #eee;
-    }
+/***** USER ACCOUNT ****/
 
-    .user-table th {
-      background: #f8f9fa;
-      font-weight: 600;
-      color: #1e3c72;
-    }
-
-/* ID CARD MANAGEMENT STYLING */
-  .design-area {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .form-section {
-            flex: 1;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            color: #1e3c72;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .form-group input[type="text"] {
-            width: 75%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input[type="text"]:focus {
-            outline: none;
-            border-color: #3fa2f6;
-        }
-
-        .image-upload {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .upload-btn {
-            background: #3fa2f6;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
-
-        .upload-btn:hover {
-            background: #2980b9;
-        }
-
-/* INSERT MORE OF YOUR STYLING HERE ROSH!! */
-
-/*USER STYLING */
+/* USER/ID CARD STYLING - Complete user card system */
 .container {
    width: 100%;
    max-width: none;
@@ -422,7 +996,6 @@
   animation: pulse-glow 2s infinite;
 }
 
-
 .access-granted-bg::before {
   content: '';
   position: absolute;
@@ -432,23 +1005,6 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
   animation: shine 2s infinite;
-}
-
-.value,
-.access-granted,
-.access-denied {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.id-card:hover .value,
-.id-card:hover .access-granted,
-.id-card:hover .access-denied {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
 }
 
 .access-denied {
@@ -478,7 +1034,6 @@
   animation: pulse-glow 2s infinite;
 }
 
-
 .access-denied-bg::before {
   content: '';
   position: absolute;
@@ -490,7 +1045,7 @@
   animation: shine 2s infinite;
 }
 
-
+/* Hover effects for values and access states */
 .value,
 .access-granted,
 .access-denied {
@@ -508,14 +1063,8 @@
   transform: translateY(0);
 }
 
-
-/* Responsive Styles */
+/* RESPONSIVE ADJUSTMENTS - Additional mobile styling */
 @media (max-width: 992px) {
-  .design-area {
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .card-left {
     flex: none;
     width: 100%;
@@ -534,38 +1083,12 @@
     height: 190px;
   }
 
-  .dashboard-grid {
-    grid-template-columns: 1fr; /* One column on tablets */
-  }
-
   .form-group input[type="text"] {
     width: 100%;
   }
 }
 
-
-/* DYNAMIC SIZING FOR TABLET / MOBILE PHONES */
 @media (max-width: 768px) {
-  .timeStr {
-    font-size: 1.5rem;
-  }
-
-  .dateStr {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .navbar_top,
-  .navbar_toggle {
-    text-align: center;
-  }
-
-  .user-table th,
-  .user-table td {
-    padding: 10px 6px;
-    font-size: 0.9rem;
-  }
-
   .id-card {
     flex-direction: column;
     align-items: center;
@@ -573,15 +1096,6 @@
 
   .card-left, .card-right {
     width: 100%;
-  }
-
-  .dashboard-grid {
-    grid-template-columns: 1fr; /* Stack cards on mobile */
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-    text-align: center;
   }
 
   .user-card-header h2 {

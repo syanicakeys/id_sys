@@ -1,51 +1,247 @@
 <h2 class="section-title">Dashboard</h2>
 
-<div class="dashboard-grid">
+<!-- Quick Stats Overview -->
+<div class="stats-grid">
     <div class="stat-card">
         <div class="card-header">
-        <div class="card-title">Title</div>
+            <div class="card-title">Total Students</div>
         </div>
-        <div class="stat-number">01</div>
-        
-            <div class="stat-label">Lorem Ipsum</div>
-            <div class="progress-bar">
-            <div class="progress-fill" style="width: 85%"></div>
-            </div>
+        <div class="stat-number">2,583</div>
+        <div class="stat-label">Active Students</div>
+
     </div>
 
     <div class="stat-card">
         <div class="card-header">
-        <div class="card-title">Title</div>
+            <div class="card-title">ID Cards Issued</div>
         </div>
-        <div class="stat-number">02</div>
-        
-            <div class="stat-label">Lorem Ipsum</div>
-            <div class="progress-bar">
-            <div class="progress-fill" style="width: 35%"></div>
-            </div>
+        <div class="stat-number">1,156</div>
+        <div class="stat-label">This Month</div>
+
     </div>
     
     <div class="stat-card">
         <div class="card-header">
-        <div class="card-title">Title</div>
+            <div class="card-title">Title</div>
         </div>
         <div class="stat-number">03</div>
-        
-            <div class="stat-label">Lorem Ipsum</div>
-            <div class="progress-bar">
-            <div class="progress-fill" style="width: 10%"></div>
-            </div>
+        <div class="stat-label">Lorem Ipsum</div>
+
     </div>
     
     <div class="stat-card">
         <div class="card-header">
-        <div class="card-title">Title</div>
+            <div class="card-title">Title</div>
         </div>
         <div class="stat-number">04</div>
-        
-            <div class="stat-label">Lorem Ipsum</div>
-            <div class="progress-bar">
-            <div class="progress-fill" style="width: 55%"></div>
-            </div>
+        <div class="stat-label">Lorem Ipsum</div>
     </div>                    
+</div>
+
+
+<!-- Quick Actions -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="form-section">
+            <h5 class="mb-4">Quick Actions</h5>
+            <div class="quick-actions">
+                <button class="btn btn-outline-custom">
+                    <i class="fas fa-plus"></i> Add New User
+                </button>
+                <button class="btn btn-outline-custom">
+                    <i class="fas fa-id-card"></i> Issue ID Card
+                </button>
+                <button class="btn btn-outline-custom">
+                    <i class="fas fa-download"></i> Button 3
+                </button>
+                <button class="btn btn-outline-custom">
+                    <i class="fas fa-cog"></i> Button 4
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="realtime-section">
+    <div class="realtime-title">
+        <h4>Real-time Activity Monitor</h4>
+        <div class="d-flex justify-content-between mt-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="recent-scans">
+                <h5>Staff Recent Scans</h5>
+                <div class="list-group">
+                    <div class="list-group-item bg-transparent border-0 text-white">
+                        <div class="d-flex justify-content-between">
+                            <span>Dr. Sarah Wilson</span>
+                            <small>5s ago</small>
+                        </div>
+                        <small class="text-white-50">Faculty Office</small>
+                    </div>
+                    <div class="list-group-item bg-transparent border-0 text-white">
+                        <div class="d-flex justify-content-between">
+                            <span>Prof. Michael Chen</span>
+                            <small>1m ago</small>
+                        </div>
+                        <small class="text-white-50">Computer Lab</small>
+                    </div>
+                    <div class="list-group-item bg-transparent border-0 text-white">
+                        <div class="d-flex justify-content-between">
+                            <span>Dr. Emily Rodriguez</span>
+                            <small>2m ago</small>
+                        </div>
+                        <small class="text-white-50">Clinic</small>
+                    </div>
+                    <div class="list-group-item bg-transparent border-0 text-white">
+                        <div class="d-flex justify-content-between">
+                            <span>Prof. James Thompson</span>
+                            <small>3m ago</small>
+                        </div>
+                        <small class="text-white-50">Faculty Office</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="recent-scans">
+                <h5> Student Recent Scans</h5>
+                <div class="list-group">
+                    <div class="list-group-item bg-transparent border-0 text-white">
+                        <div class="d-flex justify-content-between">
+                            <span>John Doe</span>
+                            <small>2s ago</small>
+                        </div>
+                        <small class="text-white-50">Building A</small>
+                    </div>
+                    <div class="list-group-item bg-transparent border-0 text-white">
+                        <div class="d-flex justify-content-between">
+                            <span>Jane Smith</span>
+                            <small>15s ago</small>
+                        </div>
+                        <small class="text-white-50">Library</small>
+                    </div>
+                    <div class="list-group-item bg-transparent border-0 text-white">
+                        <div class="d-flex justify-content-between">
+                            <span>Mike Johnson</span>
+                            <small>32s ago</small>
+                        </div>
+                        <small class="text-white-50">Building B</small>
+                    </div>
+                    <div class="list-group-item bg-transparent border-0 text-white">
+                        <div class="d-flex justify-content-between">
+                            <span>Lisa Anderson</span>
+                            <small>1m ago</small>
+                        </div>
+                        <small class="text-white-50">Building C</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Recent Activities Table -->
+<div class="user-table">
+    <h5 class="mb-3">Recent System Activities</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>User</th>
+                <th>Action</th>
+                <th>Location</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>14:32:15</td>
+                <td>John Doe</td>
+                <td>Access Granted</td>
+                <td>Building A - Main Entry</td>
+                <td><span class="status-badge status-present">Success</span></td>
+            </tr>
+            <tr>
+                <td>14:31:48</td>
+                <td>Jane Smith</td>
+                <td>Access Granted</td>
+                <td>Library - Study Room</td>
+                <td><span class="status-badge status-present">Success</span></td>
+            </tr>
+            <tr>
+                <td>14:30:22</td>
+                <td>Mike Johnson</td>
+                <td>Access Denied</td>
+                <td>Server Room</td>
+                <td><span class="status-badge status-absent">Denied</span></td>
+            </tr>
+            <tr>
+                <td>14:29:15</td>
+                <td>Sarah Wilson</td>
+                <td>ID Card Issued</td>
+                <td>Admin Office</td>
+                <td><span class="status-badge status-late">Pending</span></td>
+            </tr>
+            <tr>
+                <td>14:28:03</td>
+                <td>David Brown</td>
+                <td>Access Granted</td>
+                <td>Parking Lot B</td>
+                <td><span class="status-badge status-present">Success</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- System Status -->
+<div class="row mt-4">
+    <div class="col-lg-6">
+        <div class="form-section">
+            <h5 class="mb-3">System Health</h5>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Database Connection</span>
+                    <span class="badge bg-success">Healthy</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Card Readers</span>
+                    <span class="badge bg-warning">6/12 Online</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Server Status</span>
+                    <span class="badge bg-success">Running</span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Backup Status</span>
+                    <span class="badge bg-warning">Last: 2h ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-section">
+            <h5 class="mb-3">Alerts & Notifications</h5>
+            <div class="alert alert-warning" role="alert">
+                <strong>Notice:</strong> Scheduled maintenance on Sunday 2:00 AM - 4:00 AM
+            </div>
+            <div class="alert alert-info" role="alert">
+                <strong>Info:</strong> 23 users pending ID card approval
+            </div>
+            <div class="alert alert-success" role="alert">
+                <strong>Success:</strong> Weekly backup completed successfully
+            </div>
+        </div>
+    </div>
 </div>

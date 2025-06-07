@@ -1,5 +1,210 @@
-<div class="attendance-management-content">
-  <h2 class="section-title">Attendance Management</h2>
-  <p>View and manage student attendance records.</p>
-  <!-- More content here -->
+<!-- Attendance Management HTML -->
+<div class="container-fluid p-4">
+    <!-- Header -->
+    <h2 class="section-title">Attendance Management</h2>
+    <p>Monitor and manage student/faculty attendance in real-time</p>
+
+    <!-- Stats Overview -->
+<div class="stats-grid">
+  <div class="stat-card">
+        <div class="card-header">
+        <div class="card-title">Total Students</div>
+        </div>
+        <div class="stat-number">2,583</div>
+        
+   
+    </div>
+ <div class="stat-card">
+        <div class="card-header">
+        <div class="card-title">Faculty Members</div>
+        </div>
+        <div class="stat-number">384</div>
+    </div>
+     <div class="stat-card">
+        <div class="card-header">
+        <div class="card-title">Late Today (Faculty)</div>
+        </div>
+        <div class="stat-number">10</div>
+        
+    
+    </div>
+     <div class="stat-card">
+        <div class="card-header">
+        <div class="card-title">Attendance Rate (Faculty)</div>
+        </div>
+        <div class="stat-number">97.40%</div>
+        
+            
+    </div>
+
+</div>
+
+   
+
+    <!-- Filters and Actions -->
+    <div class="filter-section">
+        <h4 class="filter-title">Filter & Search</h4>
+        <div class="row">
+            <div class="col-md-3">
+                <label class="form-label">Date Range</label>
+                <input type="date" class="form-control" id="dateFrom" value="2024-06-07">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">To</label>
+                <input type="date" class="form-control" id="dateTo" value="2024-06-07">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Department</label>
+                <select class="form-select">
+                    <option>All Departments</option>
+                    <option>Computer Science</option>
+                    <option>Engineering</option>
+                    <option>Accountancy</option>
+                    <option>Faculty</option>
+                  
+                </select>
+            </div>
+          
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Search by Name or ID...">
+            </div>
+            <div class="col-md-6">
+                <div class="quick-actions">
+                    <button class="btn btn-primary-custom">Search</button>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attendance Table -->
+    <div class="attendance-table">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="chart-title">Today's Attendance Records</h4>
+            <div>
+                <button class="btn btn-primary-custom btn-sm">Export PDF</button>
+            </div>
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" class="form-check-input"></th>
+                        <th>ID #</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Check-in Time</th>
+                        <th>Check-out Time</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>2024021234</td>
+                        <td>John Doe</td>
+                        <td>Faculty</td>
+                        <td>08:15 AM</td>
+                        <td>-</td>
+                
+                        <td>Gate A</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-custom">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>2024021235</td>
+                        <td>Jane Smith</td>
+                        <td>Engineering</td>
+                        <td>08:45 AM</td>
+                        <td>-</td>
+             
+                        <td>Gate B</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-custom">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>2024021236</td>
+                        <td>Mike Johnson</td>
+                        <td>Accountancy</td>
+                        <td>-</td>
+                        <td>-</td>
+              
+                        <td>-</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-custom">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>2024021237</td>
+                        <td>Sarah Wilson</td>
+                        <td>Accountancy</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Gate C</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-custom">Edit</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="form-check-input"></td>
+                        <td>2024021238</td>
+                        <td>David Brown</td>
+                        <td>Computer Science</td>
+                        <td>07:55 AM</td>
+                        <td>04:30 PM</td>
+                
+                        <td>Gate A</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-custom">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <nav aria-label="Attendance pagination">
+            <ul class="pagination justify-content-center mt-4">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+<div class="chart-container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="chart-title mb-0">Attendance Trends</h4>
+        <div class="btn-group" role="group" aria-label="Time Filter">
+            <button type="button" class="btn btn-primary-custom">Weekly</button>
+            <button type="button" class="btn btn-sm btn-outline-custom">Monthly</button>
+            <button type="button" class="btn btn-sm btn-outline-custom">Yearly</button>
+        </div>
+    </div>
+
+    <div class="chart-placeholder">
+        <div class="text-center">
+            <div class="chart-icon">📊</div>
+            <p>Chart visualization would be integrated here<br>
+            <small>(Using Chart.js, D3.js, or similar library)</small></p>
+        </div>
+    </div>
+</div>
+
 </div>

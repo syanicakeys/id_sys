@@ -1,83 +1,97 @@
-<div class="user-management-content">
-  <h2 class="section-title mt-4">User Management</h2>
-  <p>Manage student and staff accounts, permissions, and profiles.</p>
+  <div class="user-management-content">
+      <h2 class="section-title mt-4">User Management</h2>
+      <p>Manage staff and admin accounts, permissions, and profiles.</p>
+      
+      <div class="user-table">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="mb-0">Registered Staff & Admin Users</h3>
+              <button class="btn-primary-custom">Add New Staff/Admin</button>
+          </div>
 
-  <div class="user-table">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3 class="mb-0">Registered Users</h3>
-      <button class="btn btn-primary btn-sm">Add New User</button>
-    </div>
-
-    <div class="table-responsive">
-      <table class="table mb-0">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th style="width: 150px;">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>202312001</td>
-            <td>DELA CRUZ, JUAN</td>
-            <td>Student</td>
-            <td>juan.delacruz@adamson.edu.ph</td>
-            <td><span class="status-indicator status-active rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Active</td>
-            <td>
-              <button class="btn btn-sm btn-outline-primary me-1">Edit</button>
-              <button class="btn btn-sm btn-outline-secondary">View</button>
-            </td>
-          </tr>
-          <tr>
-            <td>202312002</td>
-            <td>SANTOS, MARIA</td>
-            <td>Student</td>
-            <td>maria.santos@adamson.edu.ph</td>
-            <td><span class="status-indicator status-active rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Active</td>
-            <td>
-              <button class="btn btn-sm btn-outline-primary me-1">Edit</button>
-              <button class="btn btn-sm btn-outline-secondary">View</button>
-            </td>
-          </tr>
-          <tr>
-            <td>STAFF001</td>
-            <td>GARCIA, PEDRO</td>
-            <td>Staff</td>
-            <td>pedro.garcia@adamson.edu.ph</td>
-            <td><span class="status-indicator status-inactive rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Inactive</td>
-            <td>
-              <button class="btn btn-sm btn-outline-primary me-1">Edit</button>
-              <button class="btn btn-sm btn-outline-secondary">View</button>
-            </td>
-          </tr>
-          <tr>
-            <td>ROLEXXX</td>
-            <td>LASTNAME, FIRSTNAME</td>
-            <td>Role</td>
-            <td>email@adamson.edu.ph</td>
-            <td><span class="status-indicator status-inactive rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Status</td>
-            <td>
-              <button class="btn btn-sm btn-outline-primary me-1">Edit</button>
-              <button class="btn btn-sm btn-outline-secondary">View</button>
-            </td>
-          </tr>
-          <tr>
-            <td>ROLEXXX</td>
-            <td>LASTNAME, FIRSTNAME</td>
-            <td>Role</td>
-            <td>email@adamson.edu.ph</td>
-            <td><span class="status-indicator status-inactive rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Status</td>
-            <td>
-              <button class="btn btn-sm btn-outline-primary me-1">Edit</button>
-              <button class="btn btn-sm btn-outline-secondary">View</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <!-- Search and Filters -->
+          <div class="user-table-filters mb-3 d-flex gap-3 align-items-center flex-wrap">
+              <input type="text" id="userSearch" placeholder="Search users..." class="form-control" style="max-width: 300px;" />
+              <select id="filterType" class="form-select" style="max-width: 150px;">
+                  <option value="">All Types</option>
+                  <option value="Staff">Staff</option>
+                  <option value="Admin">Admin</option>
+                  <option value="Role">Role</option>
+              </select>
+              <select id="filterStatus" class="form-select" style="max-width: 150px;">
+                  <option value="">All Statuses</option>
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                  <option value="Pending">Pending</option>
+              </select>
+          </div>
+          
+          <div class="table-responsive">
+              <table class="table mb-0" id="userTable">
+                  <thead>
+                      <tr>
+                          <th data-sort="id" style="cursor:pointer;">ID &#x25B2;&#x25BC;</th>
+                          <th data-sort="name" style="cursor:pointer;">Name &#x25B2;&#x25BC;</th>
+                          <th data-sort="type" style="cursor:pointer;">Type &#x25B2;&#x25BC;</th>
+                          <th data-sort="email" style="cursor:pointer;">Email &#x25B2;&#x25BC;</th>
+                          <th data-sort="status" style="cursor:pointer;">Status &#x25B2;&#x25BC;</th>
+                          <th style="width: 150px;">Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>STAFF001</td>
+                          <td>GARCIA, PEDRO</td>
+                          <td>Staff</td>
+                          <td>pedro.garcia@adamson.edu.ph</td>
+                          <td>
+                            <span class="status-indicator status-active rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Active
+                          </td>
+                          <td>
+                              <button class="btn-outline-custom me-1">Edit</button>
+                              <button class="btn-outline-custom">View</button>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>ADMIN002</td>
+                          <td>REYES, MARIA</td>
+                          <td>Admin</td>
+                          <td>maria.reyes@adamson.edu.ph</td>
+                          <td>
+                            <span class="status-indicator status-pending rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Pending
+                          </td>
+                          <td>
+                              <button class="btn-outline-custom me-1">Edit</button>
+                              <button class="btn-outline-custom">View</button>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>ROLEXXX</td>
+                          <td>LASTNAME, FIRSTNAME</td>
+                          <td>Role</td>
+                          <td>email@adamson.edu.ph</td>
+                          <td>
+                            <span class="status-indicator status-inactive rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Inactive
+                          </td>
+                          <td>
+                              <button class="btn-outline-custom me-1">Edit</button>
+                              <button class="btn-outline-custom">View</button>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>ROLEYYY</td>
+                          <td>LASTNAME, FIRSTNAME</td>
+                          <td>Role</td>
+                          <td>email@adamson.edu.ph</td>
+                          <td>
+                            <span class="status-indicator status-pending rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Pending
+                          </td>
+                          <td>
+                              <button class="btn-outline-custom me-1">Edit</button>
+                              <button class="btn-outline-custom">View</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
   </div>
-</div>

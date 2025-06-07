@@ -1,32 +1,217 @@
-<h2 class="section-title">ID Card Management</h2>
-<p>Manage ID card printing, distribution, and tracking.</p>
+ <div class="container-fluid">
+        <h2 class="section-title">ID Card Management</h2>
+        <p>Manage ID card printing, distribution, and tracking.</p>
 
-<div class="design-area card p-4 shadow-sm mt-3">
-  <div class="form-section row g-3">
-    
-    <!-- Student Name -->
-    <div class="form-group col-md-6">
-      <label for="studentName" class="form-label fw-semibold">Student Name</label>
-      <input type="text" class="form-control" id="studentName" placeholder="e.g., Juan D. Cruz" oninput="updateCard()">
+        <div class="design-area">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="studentName">Student Name:</label>
+                    <input 
+                        type="text" 
+                        id="studentName" 
+                        class="form-control" 
+                        placeholder="Enter full name (e.g., Juan D. Cruz)"
+                        value="Juan D. Cruz"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentCourse">Course:</label>
+                    <input 
+                        type="text" 
+                        id="studentCourse" 
+                        class="form-control" 
+                        placeholder="e.g., BACHELOR of SCIENCE in COMPUTER SCIENCE"
+                        value="BACHELOR of SCIENCE in COMPUTER SCIENCE"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label>Student Photo:</label>
+                    <div class="image-upload">
+                        <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+                        <button class="upload-btn" onclick="document.getElementById('photoUpload').click()">
+                            Upload Photo
+                        </button>
+                        <small style="color: #666; margin-top: 5px;">Recommended: 2x2 ID photo</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn-primary-custom" >Generate ID Card</button>
+                </div>
+            </div>
+
+            <!-- ID Card Preview Section with Print Button Below -->
+            <div class="preview-container">
+                <div id="idCardPreview" class="id-card-preview">
+                    <div class="photo-container">
+                        <img id="photoPreview" src="" alt="Student Photo" class="photo-preview">
+                        <span id="photoPlaceholder" class="photo-placeholder">No Photo</span>
+                    </div>
+                    <h3 id="previewName" class="preview-name">Juan D. Cruz</h3>
+                    <p id="previewCourse" class="preview-course">BACHELOR of SCIENCE in COMPUTER SCIENCE</p>
+                    <div class="id-details">
+                        <p>Student #: 202X-XXXXX</p>
+                       
+                    </div>
+                </div>
+                
+                <!-- Print Actions Below the Card -->
+                <div class="print-actions">
+                    <button class="btn-print" onclick="printCard()">
+                        Print ID Card
+                    </button>
+                    <button class="btn-download" onclick="downloadCard()">
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ID Viewing and Tracking Section -->
+        <div class="id-tracking-section">
+            <h2 class="section-title">ID Viewing & Tracking</h2>
+            <p>Track distribution and status of issued IDs.</p>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 class="mb-0">Issued IDs</h3>
+                <button class="btn-primary-custom">Export Report</button>
+            </div>
+
+            <!-- Filters & Search -->
+            <div class="d-flex gap-3 align-items-center flex-wrap mb-3">
+                <input type="text" id="idSearch" placeholder="Search Name or ID #" class="form-control" style="max-width: 300px;" />
+                <select id="filterIDType" class="form-select" style="max-width: 180px;">
+                    <option value="">All Types</option>
+                    <option value="Staff">Faculty</option>
+                    <option value="Student">Student</option>
+                    <option value="Admin">Admin</option>
+                  
+                </select>
+                <select id="filterIDStatus" class="form-select" style="max-width: 180px;">
+                    <option value="">All Statuses</option>
+                    <option value="Issued">Issued</option>
+                    <option value="Returned">Returned</option>
+                    <option value="Lost">Lost</option>
+                    <option value="Expired">Expired</option>
+                </select>
+            </div>
+
+            <div class="table-responsive user-table">
+                <table class="table" id="idTrackingTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="id">ID #</th>
+                            <th data-sort="holder">Name</th>
+                            <th data-sort="type">Type</th>
+                            <th data-sort="status">Status</th>
+                            <th data-sort="distributed">Distribution Date</th>
+                            <th style="width: 150px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>202XXXXXX</td>
+                            <td>Cruz, Juan D.</td>
+                            <td>Student</td>
+                            <td>
+                                <span class="status-indicator status-issued rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Issued
+                            </td>
+                            <td>2025-06-01</td>
+                            <td>
+                                <button class="btn-outline-custom me-1">Edit</button>
+                                <button class="btn-outline-custom">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ID001</td>
+                            <td>Garcia, Pedro</td>
+                            <td>Faculty</td>
+                            <td>
+                                <span class="status-indicator status-issued rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Issued
+                            </td>
+                            <td>2025-05-01</td>
+                            <td>
+                                <button class="btn-outline-custom me-1">Edit</button>
+                                <button class="btn-outline-custom">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ID002</td>
+                            <td>Reyes, Maria</td>
+                            <td>Admin</td>
+                            <td>
+                                <span class="status-indicator status-returned rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Returned
+                            </td>
+                            <td>2025-04-20</td>
+                            <td>
+                                <button class="btn-outline-custom me-1">Edit</button>
+                                <button class="btn-outline-custom">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ID003</td>
+                            <td>Smith, John</td>
+                            <td>Faculty</td>
+                            <td>
+                                <span class="status-indicator status-lost rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Lost
+                            </td>
+                            <td>2025-03-15</td>
+                            <td>
+                                <button class="btn-outline-custom me-1">Edit</button>
+                                <button class="btn-outline-custom">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ID004</td>
+                            <td>Johnson, Emily</td>
+                            <td>Student</td>
+                            <td>
+                                <span class="status-indicator status-expired rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Expired
+                            </td>
+                            <td>2024-12-10</td>
+                            <td>
+                                <button class="btn-outline-custom me-1">Edit</button>
+                                <button class="btn-outline-custom">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ID005</td>
+                            <td>Brown, Michael</td>
+                            <td>Student</td>
+                            <td>
+                                <span class="status-indicator status-issued rounded-circle d-inline-block me-1" style="width: 10px; height: 10px;"></span>Issued
+                            </td>
+                            <td>2025-06-05</td>
+                            <td>
+                                <button class="btn-outline-custom me-1">Edit</button>
+                                <button class="btn-outline-custom">View</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <nav aria-label="ID tracking pagination" class="mt-3">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
-
-    <!-- Student Course -->
-    <div class="form-group col-md-6">
-      <label for="studentCourse" class="form-label fw-semibold">Course</label>
-      <input type="text" class="form-control" id="studentCourse" placeholder="e.g., B.S. Computer Science" oninput="updateCard()">
-    </div>
-
-    <!-- Photo Upload -->
-    <div class="form-group col-12">
-      <label class="form-label fw-semibold">Student Photo</label>
-      <div class="d-flex flex-column align-items-start">
-        <input type="file" id="photoUpload" accept="image/*" class="form-control d-none" onchange="handleImageUpload(event)">
-        <button class="btn btn-outline-primary mt-1" onclick="document.getElementById('photoUpload').click()">
-          📷 Upload Photo
-        </button>
-        <small class="text-muted mt-2">Recommended: 2x2 ID photo</small>
-      </div>
-    </div>
-
-  </div>
-</div>
